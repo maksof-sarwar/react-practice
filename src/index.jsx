@@ -4,6 +4,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import { BrowserRouter} from 'react-router-dom';
+import 'bulma/css/bulma.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <BrowserRouter>
         <App />

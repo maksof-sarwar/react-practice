@@ -1,11 +1,16 @@
 import axios from 'axios';
 var commonHeaders ={
+    'api-key':'123',
     'Access-Control-Allow-Origin' : '*',
 }
 const services = {
     get :async (url, headers, params)=>{
         try{
-            let response = await axios.get(url,{headers: {...headers, ...commonHeaders}, params: params});
+            let config= {
+                headers:{...headers, ...commonHeaders},
+                params: params
+            }
+            let response = await axios.get(url,config);
             return Promise.resolve(response)
         } catch(err){
             return Promise.reject(err);
@@ -13,12 +18,15 @@ const services = {
     },
     post : async (url, headers, params, body)=>{
         try{
-            let response = await axios.post(url, body,{headers: headers, params: params})
+            let config= {
+                headers:{...headers, ...commonHeaders},
+                params: params
+            }
+            let response = await axios.post(url, body,config)
             return Promise.resolve(response)
         } catch(err){
             return Promise.reject(err);
         }
     }
-
 }
 export default services;
